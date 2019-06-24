@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" :title="message1">
+    {{ message }}
+
+
+
+    <template v-if="status == 1">
+      <h1>Заголовок 1</h1>
+      <p>Описание 1</p>
+    </template>
+
+    <template v-else>
+      <h1>Заголовок 2</h1>
+      <p>Описание 2</p>
+    </template>
+
+    <div :class="{ active: isActive, 'btn-default': isBtn }">
+
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vadim!',
+        message1: 'Это моя тестовая работа',
+        status: 1,
+        isActive: false,
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue">
+    <!-- Перебор массива -->
+    <ul>
+      <li v-for="item in list">{{ item }}</li>
+      <hr>
+      <li v-for="(item, index) in list">index {{ index }}: {{ item }}</li>
+    </ul>
+    <hr>
+    <!-- Ассоциативный массив -->
+    <ul>
+      <li v-for="user in users">{{ user.id }}: {{ user.name }}</li>
+    </ul>
+    <hr>
+    <!-- В  виде таблицы -->
+    <table border="1" v-on:click="nameFunction2">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+      </thead>
+      <tbody>
+        <tr v-for="user in users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#vue',
+      data: {
+        list: ['один', 'два', 'три'],
+        users: [{
+            id: 1,
+            name: 'Vadim'
+          },
+          {
+            id: 2,
+            name: 'Ser'
+          }
+        ]
+      },
+      methods: {
+        nameFunction(){
+          alert(1);
+        },
+        nameFunction2: function(){
+          alert('nameFunction2');
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
